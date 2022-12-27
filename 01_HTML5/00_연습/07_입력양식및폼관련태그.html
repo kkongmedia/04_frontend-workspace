@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력양식 및 폼 관련태그</title>
+</head>
+<body>
+    <h1>입력양식 관련태그</h1>
+
+    <h2>input 태그</h2>
+    <p>사용자에게 값을 입력받을 수 있는 텍스트 상자 또는 체크박스 등등을 만들 수 있음</p>
+
+    아이디 : <input type="text"> <br>
+    비밀번호 : <input type="password"> <br>
+    성별 : <input type="radio"> 남
+            <input type="radio"> 여
+    <input type="submit" value="회원가입">
+
+    <hr>
+
+    <h1>폼 관련 태그</h1>
+
+    <p>
+        form 태그 내에 submit 버튼 클릭시 해당 form 안에 작성된 <br>
+        사용자가 입력한 값들을 서버로 넘기면서 요청하는 역할 수행
+    </p>
+
+
+
+    <form action="kh.do" method="post">
+        <fieldset>
+            검색어 : <input type="text" name="keyword">
+            <input type="submit" value="검색">
+        </fieldset>
+    </form>
+
+    <fieldset>
+        안녕하세요
+    </fieldset>
+
+    <hr>
+
+    <h3>fieldset : 그룹을 묶는 태그(기본적으로 테두리 존재)</h3>
+    <h3>legend : 해당 그룹의 제목 붙이는 태그</h3>
+
+    <form action="kh.do">
+        <fieldset>
+            <legend>제목1</legend>
+            입력 1 : <input type="text" name="text1" placeholder="데이터를 입력해주세요"><br>
+            입력 2 : <input type="text" name="text2"><br>
+        </fieldset>
+        <fieldset>
+            <legend>제목2</legend>
+            입력 3 : <input type="text" name="text3"><br>
+            입력 4 : <input type="text" name="text4"><br>
+        </fieldset>
+
+        <input type="submit">
+        <input type="reset">
+    </form>
+
+
+    
+</body>
+</html>
