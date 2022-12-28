@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML종합실습문제1</title>
+</head>
+<body>
+
+    <form action="test.do">
+        <br>
+        <h2>피자 주문</h2>
+        <br>
+        
+
+        고객명 : 
+        <input type="text" name="userName" id="" placeholder="고객명 입력해주세요" required> <br><br>
+    
+        전화번호 : 
+        <input type="phone" name="phone" id="" placeholder="전화번호를 입력해주세요" required> <br><br>
+    
+        E-Mail : 
+        <input type="email" name="email" id="" placeholder="(선택)이메일을 입력해주세요"> <br><br>
+        <br>
+    <fieldset>
+        <legend>피자 사이즈</legend>
+
+        <input type="radio" name="size" id="Small" value="Small">
+        <label for="Small">Small</label><br><br>
+
+        <input type="radio" name="size" id="Medium" value="Medium">
+        <label for="Medium">Medium</label><br><br>
+
+        <input type="radio" name="size" id="Large" value="Large">
+        <label for="Large">Large</label><br><br>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>토핑 선택</legend>
+
+        <input type="checkbox" name="taste" id="베이컨" value="베이컨">
+        <label for="베이컨">베이컨</label> <br><br>
+
+        <input type="checkbox" name="taste" id="치즈" value="치즈">
+        <label for="치즈">치즈</label> <br><br>
+
+        <input type="checkbox" name="taste" id="양파" value="양파">
+        <label for="양파">양파</label> <br><br>
+
+        <input type="checkbox" name="taste" id="버섯" value="버섯">
+        <label for="버섯">버섯</label> <br><br>
+
+    </fieldset>
+
+    <br><br>
+    희망 배송시간 : 
+    
+    <br>
+    <input type="time" name="timeIn" id="">
+    <br><br>
+
+    배송시 요청사항 :
+    <br>
+    <textarea name="text" placeholder="배송시 요청사항을 입력해주세요" id="" cols="30" rows="10" style="resize: none;"></textarea>
+
+    <br><br>
+    <input type="submit" value="주문하기">
+
+    <input type="reset" value="다시 입력하기">
+    </form>
+
+
+    
+</body>
+</html>
