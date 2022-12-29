@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입력양식 및 폼 관련태그</title>
+    <title>입력양식및폼관련태그</title>
 </head>
 <body>
-    <h1>입력양식 관련태그</h1>
+    <h1>입력양식 관련 태그</h1>
 
     <h2>input 태그</h2>
-    <p>사용자에게 값을 입력받을 수 있는 텍스트 상자 또는 체크박스 등등을 만들 수 있음</p>
+    <p>사용자에게 값을 입력받으 수 있는 텍스트 상자 또는 체크박스 등등을 만들 수 있음</p>
 
-    아이디 : <input type="text"> <br>
-    비밀번호 : <input type="password"> <br>
-    성별 : <input type="radio"> 남
-            <input type="radio"> 여
-    <input type="submit" value="회원가입">
+    아이디 : <input type="text" name="" id=""><br>
+    비밀번호 : <input type="password" name="" id=""><br>
+    성별 : <input type="radio">남 
+            <input type="radio">여 <br>
+            <input type="submit" value="회원가입">
 
     <hr>
 
     <h1>폼 관련 태그</h1>
 
     <p>
-        form 태그 내에 submit 버튼 클릭시 해당 form 안에 작성된 <br>
-        사용자가 입력한 값들을 서버로 넘기면서 요청하는 역할 수행
+        form 태그 내에 submit 버튼 클릭시 해당 form안에 작성된 <br>
+        사용자가 입력한 값들을 서버로 엄기면서 요청하는 역할 수행 form actio="" method=""
+
+        *action 속성 : 해당 form 에 사용자가 입력한 값들을 전달하면서 요청할 서버 경로제시
+        *method 속성 : 요청 전송 방식을 지정하는 속성(get(기본값),post) <br>
+        >get 방식 : 요청시 사용자가 입력한 값들이 url에 노출되는 방식 <br>
+        >post 방식 : 요청시 사용자가 입력한 값들이 url에 노출되지 않는 방식 <br>
+
+        form내에 submit 버튼 클릭시 action 지정한 서버로 사용자가 입력한 값들이 <br>
+        넘어가면서 요청됨(사용자가 입력한 값들은 항상 key = value) 세트로 전달
     </p>
-
-
-
-    <form action="kh.do" method="post">
+    
+    <form action="search.do" method="post">
         <fieldset>
-            검색어 : <input type="text" name="keyword">
+            검색어 : <input type="text" name="" id="keyword">
             <input type="submit" value="검색">
         </fieldset>
     </form>
@@ -42,26 +48,48 @@
 
     <hr>
 
-    <h3>fieldset : 그룹을 묶는 태그(기본적으로 테두리 존재)</h3>
-    <h3>legend : 해당 그룹의 제목 붙이는 태그</h3>
+    <h3>fieldset : 그룹 묶는 태그(기본적으로 테두리 존재)</h3>
+    <h3>legend : 해당 그룹의 제목을 붙이는 태그</h3>
 
-    <form action="kh.do">
+
+    <form action="">
         <fieldset>
-            <legend>제목1</legend>
-            입력 1 : <input type="text" name="text1" placeholder="데이터를 입력해주세요"><br>
-            입력 2 : <input type="text" name="text2"><br>
-        </fieldset>
-        <fieldset>
-            <legend>제목2</legend>
-            입력 3 : <input type="text" name="text3"><br>
-            입력 4 : <input type="text" name="text4"><br>
+            <legend>제목 1</legend>
+            입력1 : <input type="text" name="text1" id="text1" placeholder="입력해주세요"> <br>
+            입력2 : <input type="text" name="text2"><br>
         </fieldset>
 
-        <input type="submit">
-        <input type="reset">
+        <fieldset>
+            <legend>제목 2</legend>
+            입력1 : <input type="text" name="text3" id="text3"> <br>
+            입력2 : <input type="text" name="text4" id="text4"> <br>
+        </fieldset>
+
+        <input type="submit" name="" id="">
+        <input type="reset" name="" id="">
+    </form>
+
+    <hr>
+
+    <h2>text와 관련된 input 태그의 타입</h2>
+
+    <form action="test.do" method="get">
+        <fieldset>
+            <legend>input 태그</legend>
+            <h3>type="text"</h3>
+            <p>
+                -한 줄 짜리 텍스트를 입력할 수 있는 텍스트 상자(기본값) <br>
+                -생략하거나 잘못쓰면 자동으로 type="text"가 된다
+            </p>
+            아이디 : <input type="text" name="" id="" placeholder="아이디를 입력해주세요">
+
+
+        </fieldset>
+
     </form>
 
 
-    
+
+
 </body>
 </html>
