@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세부 실습</title>
+    <style>
+        div{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+        }
+
+        .wrap>div{
+            width: 100%;
+        }
+
+        #header{
+            height: 15%;
+        }
+
+        #navigator, #footer{
+            height: 5%;
+        }
+
+        #content{
+            height: 75%;
+        }
+
+        #header>div{
+            height: 100%;
+            float: left;
+        }
+
+        #navigator{
+            background-color: yellowgreen;
+        }
+
+        .navitem{
+            border: 1px solid black;
+            width: 100px;
+            list-style: none;
+            float: left;
+            color: white;
+
+        }
+
+        #content>div{
+            padding: 5px;
+            height: 100%;
+            float: left;
+        }
+
+        #h1, #h3{
+            width: 20%;
+            
+        }
+
+        #h2{
+            width: 60%;
+        }
+
+
+
+
+        #co1{
+            width: 15%;
+        }
+
+        #co2{
+            width: 60%;
+            
+        }
+
+        #co2>div{
+            width: 50%;
+            height: 50%;
+            padding: 10px;
+            float: left;
+        }
+
+        #co3{
+            width: 25%;
+        }
+
+        #co3>div{
+            width: 100%;
+
+        }
+
+        #co3-1{
+            height: 25%;
+        }
+
+        #co3-2{
+            height: 45%;
+        }
+
+        #co3-3{
+            height: 30%;
+        }
+        
+
+        /* ======================== 푸터바 스타일======================= */
+
+        #footer>p{
+            width: 100%;
+            box-sizing: border-box;
+            /* margin: 0; */
+        }
+
+        #p1{
+            height: 100%;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div id="header">
+            <div id="h1" align="center">
+                <a href="#">
+                    <img src="image/logo.jpg" alt="로고 사진" height="100%">
+                </a>
+            </div>
+            <div id="h2" align="center">
+                <a href="#">
+                    <img src="image/mainlogo.jpg" alt="메인로고 사진" height="100%">
+                </a>
+            </div>
+            <div id="h3"></div>
+        </div>
+        <div id="navigator">
+            <ul>
+                <li class="navitem">Home</li>
+                <li class="navitem">Profile</li>
+                <li class="navitem">Board</li>
+                <li class="navitem">Contact</li>
+            </ul>
+        </div>
+        <div id="content" align="center">
+            <div id="co1">
+                <img src="image/left_img.jpg" alt="왼쪽 배너 사진">
+            </div>
+            <div id="co2">
+                <div id="co2-1">
+                    <img src="image/main_img1.jpg" alt="">
+                </div>
+                <div id="co2-2">
+                    <img src="image/main_img2.jpg" alt="">
+                </div>
+                <div id="co2-3">
+                    <img src="image/main_img3.jpg" alt="">
+                </div>
+                <div id="co2-4">
+                    <img src="image/main_img4.jpg" alt="">
+                </div>
+            </div>
+            <div id="co3">
+                <div id="co3-1">
+                </div>
+                <div id="co3-2">
+                    <img src="image/right_img.jpg" alt="">
+                </div>
+                <div id="co3-3">
+                    <img src="image/me_chat.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p id="p1">
+                © Example from JAVA Web Developer Junior
+    
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>

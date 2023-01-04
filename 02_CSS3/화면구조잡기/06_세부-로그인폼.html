@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+    <title>세부 로그인폼-04실습(content-03)</title>
+
+
+    <style>
+
+
+        div,form{
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+       
+        #c3{
+            width: 300px;
+            height: 600px;
+            /* 크기상관없음~~ */
+        }
+
+
+        #login_form{
+                width: 100%;
+                height: 30%;
+        }
+
+        #login_form>*{
+            width: 100%;
+        }
+
+
+        #login_form_input{
+            height: 80%;
+        }
+
+        #login_form_etc{
+            height: 20%;
+            text-align: center
+        }
+
+        #login_form_input>div{
+                height: 100%;
+                float: left;
+        }
+
+
+        #login_input_id_pwd{
+            width: 65%;
+        }
+
+        #login_input_btn{
+            width: 35%;
+        }
+
+
+        #login_form_etc>a{
+            text-decoration: none;
+            color: rgb(61, 54, 54);
+            font-size: 12px;
+            margin: 10px;
+
+            /* text-align: center; 
+            가운데 정렬하고싶은데 이게 안돼 why??
+            요소 크기내에서만(==a만큼의 크기안에서의) 정렬이된거인 총 박스크기에서 가운데 정렬이 안됨!!
+            --> 박스크기에서 하고싶다면?? 로그인폼etc박스에서 정렬을 해야함!*/
+
+            vertical-align: middle;
+        }
+
+        #login_input_id_pwd>input{
+            width: 100%;
+            height: 50%;
+            /* 공평하게 반반씩 나눠가지니깐 여기서 바로 가능 */
+            box-sizing: border-box;
+        }
+
+   
+        #login_input_btn>input{
+            width: 100%;
+            height: 100%;
+            
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+    
+    <!-- 총 만들고 있는 요소들이 들어갈 위치(04_실습)의 아이디랑 똑같이 만들어야한다 -->
+    
+    <!-- 
+        1. 로그인 전체를 감싸는 div 만들기
+        2-1. 입력을 받아 요청할 수 있는 form
+        2-2. 회원가입,id/pwd 찾기 링크 영역
+        3-1. ID/PWD 텍스트 상자가 들어갈 div 만들기
+        3-2. 로그인 버튼이 들어갈 div 만들기
+     -->
+
+
+    <div id="c3">
+
+        <!-- 1. 로그인 전체를 감싸는 div 만들기 -->
+         <div id="login_form">
+
+            <!-- 2-1. 입력을 받아 요청할 수 있는 form (+form은 없어서 추가로 위에 스타일 추가)-->
+            <form action="" id="login_form_input">
+
+                <!-- 3-1. ID/PWD 텍스트 상자가 들어갈 div 만들기 -->
+                <div id="login_input_id_pwd">
+
+                    <!-- required : 필수로 값을 받아야함! -->
+                    <input type="text" name="userId" id="input_Id" 
+                    placeholder="아이디를 입력해주세요" required>
+
+                    <input type="password" name="userPwd" id="input_pwd"
+                    placeholder="비밀번호를 입력해주세요" required>
+
+                </div>
+
+                <!-- 3-2. 로그인 버튼이 들어갈 div 만들기 -->
+                <div id="login_input_btn">
+                    <input type="submit" name="login_btn" id="login_btn" value="로그인">
+                </div>
+            </form>
+
+            <!-- 2-2. 회원가입,id/pwd 찾기 링크 영역 -->
+            <div id="login_form_etc">
+                <a href="#">회원가입</a>
+                <a href="#">ID/PWD 찾기</a>
+            </div>
+
+         </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>
