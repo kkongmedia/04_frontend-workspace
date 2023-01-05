@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서 구조 상세</title>
+    <style>
+        div,form, input {box-sizing: border-box; 
+            /* border: 1px solid red; */
+        }
+
+        .wrap {
+            width: 1000px;
+            height: 800px;
+            margin: auto;
+        }
+
+        .warp>div{
+            width: 100%;
+        }
+
+        #header, #footer {
+            height: 10%;
+        }
+
+        #navigator {
+            height: 5%;
+        }
+
+        #content {
+            height: 75%;
+        }
+
+        #header>div{
+            height: 100%;
+            float: left;
+        }
+
+        #header_1 {
+            width: 15%;
+        }
+
+        #header_2 {
+            width: 65%;
+        }
+
+        #header_3 {
+            width: 20%;
+        }
+
+        #content>div {
+            height: 100%;
+            float: left;
+        }
+
+        #content_1 {
+            width: 15%;
+            padding: 15px;
+        }
+
+        #content_2 {
+            width: 58%;
+        }
+
+        #content_3 {
+            width: 27%;
+        }
+
+        #TL {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+        
+        #TR {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+
+        #BL {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+
+        #BR {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+
+        #login{
+            height: 20%;
+        }
+
+        #RM{
+            height: 50%;
+        }
+
+        #RB{
+            height: 30%;
+        }
+
+        #login_form{width: 100%; height: 30%;}
+
+        #login_form>*{width: 100%;}
+        #login_form_input{height: 80%;}
+        #login_form_etc{height: 20%; text-align: center;}
+
+        #login_form_input>div{height: 100%; float: left;}
+        #login_input_id_pwd{width: 65%;}
+        #login_input_btn{width: 35%;}
+
+        #login_form_etc>a {
+            text-decoration: none;
+            color: black;
+            font-size: 12px;
+            margin: 10px;
+            vertical-align: middle;
+        }
+        #login_input_id_pwd>input{width: 100%; height: 50%; box-sizing: border-box;}
+        #login_input_btn>input{width: 100%; height: 100%;}
+
+        #content_2>div{
+            padding: 15px;
+        }
+
+        #content_3>div{
+            padding: 5px;
+        }
+
+        #navi {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        #navi>li {
+            float: left;
+            
+            width: 25%;
+            height: 100%;
+            text-align: center;
+            background-color: green;
+        }
+
+        #navi a {
+            
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 900;
+
+            width: 100%;
+            height: 100%; 
+            display: block;
+            line-height: 35px;
+        }
+
+        #navi a:hover {
+            color: orangered;
+        }
+
+
+
+
+
+        #content_2>div{text-align: center;}
+
+        
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="header">
+            <div id="header_1"><img src="image/logo.jpg" width="100%" height="100%"></div>
+            <div id="header_2"><img src="image/mainlogo.jpg" width="100%" height="100%"></div>
+            <div id="header_3"></div>
+        </div>
+        <div id="navigator">
+            <ul id="navi">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Board</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="content_1"><img src="image/left_img.jpg" width="100%" height="100%"></div>
+            <div id="content_2">
+                <div id="TL"><a href="#"><img src="image/main_img1.jpg" width="90%" height="90%"></a><br> 나무를 심는 사람들</div>
+                <div id="TR"><a href="#"><img src="image/main_img2.jpg" width="90%" height="90%"></a><br> 아이들에게 녹색 미래를</div>
+                <div id="BL"><a href="#"><img src="image/main_img3.jpg" width="90%" height="90%"></a><br> 설악산을 살리는 길</div>
+                <div id="BR"><a href="#"><img src="image/main_img4.jpg" width="90%" height="90%"></a><br> 사라지는 북극곰을</div>
+            </div>
+            <div id="content_3">
+                <div id="login">
+                    <form action="" id="login_form_input">
+                        <div id="login_input_id_pwd">
+                            <input type="text" name="userId" placeholder="아이디를 입력해주세요" required>
+                            <input type="password" name="userPwd" placeholder="비밀번호를 입력해주세요" required>
+                        </div>
+            
+                        <div id="login_input_btn">
+                            <input type="submit" value="로그인">
+                        </div>
+                    </form>
+            
+                    <div id="login_form_etc">
+                        <a href="#">회원가입</a>
+                        <a href="#">ID/PWD 찾기</a>
+                    </div>
+                </div>
+                <div id="RM"><img src="image/right_img.jpg" width="100%" height="100%"></div>
+                <div id="RB"><img src="image/me_chat.jpg" width="100%" height="100%"></div>
+            </div>
+        </div>
+        <div id="footer"><img src="image/footer.JPG" width="100%" height="100%"></div>
+    </div>
+</body>
+</html>

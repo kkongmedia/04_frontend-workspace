@@ -5,11 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>세부-로그인</title>
+    <style>
+
+        div, form{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        #login_input{
+            width: 100%;
+            float: left;
+        }
+
+        #login_ac{
+            width: 60%;
+        }
+
+        #login_btn{
+            width: 40%;
+        }
+
+
+
+
+
+
+
+    </style>
 </head>
 <body>
+    <div id="login_form">
+        <form action="" id="login_form_input">
+            <div id="login_input">
 
-    #login_form>
-
+                <div id="login_ac">
+                    <input type="text" name="userId" id="useId" placeholder="아이디를 입력하세요" required><br>
+                    <input type="text" name="userPwd" id="userPwd" placeholder="비밀번호를 입력하세요" required>
+                </div>
     
+                <div id="login_btn">
+                    <input type="submit" name="login_bt" id="login_bt" value="로그인">
+                </div>
+    
+            </div>    
+        </form>
+
+        <div id="join_btn">
+            <a href="#">회원가입</a>
+            <a href="#">ID/PW 찾기</a>
+        </div>
+
+    </div>
+    
+
 </body>
 </html>
