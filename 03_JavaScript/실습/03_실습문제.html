@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_실습문제</title>
+
+    <style>
+        #inforArea{
+            border: 1px solid black;
+            background-color: antiquewhite;
+            width: 200px;
+            height: 100px;
+        }
+
+        
+
+        
+    </style>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+
+    <P>
+        단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name 값으로 접근할 것
+    </P>
+
+    구매자 : <input type="text" name="buyer" id="buyer" placeholder="구매자의 이름을 입력하세요." ><br><br>
+    상품명 : <input type="text" name="pName" id="pName" placeholder="구매 상품명을 입력하세요." ><br><br>
+    가격 : <input type="text" name="price" id="price" placeholder="구매 가격을 입력하세요." ><br><br>
+
+    <button onclick="buyInfor();">입력값 출력하기</button>
+
+    <br>
+    <br>
+    <!-- <input type="text" id="inforArea"> -->
+
+    <div id="inforArea"></div>
+
+    <script>
+        function buyInfor(){
+           var input1 = document.getElementsByTagName("input");
+           var input2 = document.getElementById("pName");
+           var input3 = document.getElementsByName("price");
+           
+           var info = document.getElementById("inforArea");
+
+
+
+           var buynum1 = input1[0].value;
+           var buynum2 = input2.value;
+           var buynum3 = input3[0].value;
+           console.dir(input3);
+           console.log(input3);
+
+           console.log(input1.value);
+
+
+            info.innerHTML = "구입자 : " + buynum1 + "<br>" + "구입상품 : " +  buynum2 + "<br>" + "구매가격 : " + buynum3
+        //    document.getElementById("inforArea").value = "구입자 : " + buynum1 + "구입상품 : " + buynum2 + "구매가격 : " + buynum3;
+
+        
+
+
+
+
+        }
+    </script>
+    
+</body>
+</html>
