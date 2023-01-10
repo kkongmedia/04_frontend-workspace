@@ -4,25 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실습문제5</title>
+    <title>실습문제 5</title>
+    
+
 </head>
 <body>
+    
     <h1>간이 계산기 만들기</h1>
 
-    <br>
-    첫번째 값 : <input type="text" name="num1" id="num1"> <br>
-    두번째 값 : <input type="text" name="num2" id="num2"> <br>
+    첫번째 값 : <input type="text" name="num1" id="num11"> <br>
+    두번재 값 : <input type="text" name="num2" id="num22"> <br>
+    
+    <button onclick="plus(this.value);" value="+"> + </button>
+    <button onclick="plus(this.value);" value="-"> - </button>
+    <button onclick="plus(this.value);" value="*"> X </button>
+    <button onclick="plus(this.value);" value="/"> / </button>
+    <button onclick="plus(this.value);" value="%"> % </button>
+    
+    <!-- value에 기호를 넣어서 그 기호를 넘겨받게 설정을 유도함
+        함수도 하나의 함수를 사용하고 그 value값을 넘겨받을수 있도록 한게
+        메소드명(this.value) 
+    
+        넘겨받은 this.value를 매개변수로 작동하기 위해서
+        작동시킬 메소드에 메소드(매개변수명)을 작성해서 만든다-->
 
-    <button>+</button>
-    <button>-</button>
-    <button>X</button>
-    <button>/</button>
-    <button>%</button>
-    <br>
-    계산결과 : 
+    <br><br>
+
+    <div id="area1">계산결과 : </div>
     <hr>
 
-    
+    <script>
+
+        function plus(a){
+            const area = document.getElementById('area1');
+
+            
+            const num1 = document.getElementById('num11').value; 
+            const num2 = document.getElementById('num22').value; 
+
+            const num100 = Number(num1);
+            const num111 = Number(num2);
+
+
+            switch(a){
+                case '+' : num100 + num111;
+                    break;
+                case '-' : num100 - num111;
+                    break;
+                case '*' : num100 * num111;
+                    break;
+                case '/' : num100 / num111;
+                    break;
+                case '%' : num100 % num111;
+                    break;
+                
+
+            }
+
+
+        }
+
+
+
+    </script>
+
+
 
 </body>
 </html>

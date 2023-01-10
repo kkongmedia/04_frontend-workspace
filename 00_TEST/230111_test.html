@@ -6,14 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>포트폴리오</title>
     <style>
+
+        #title1{
+            width: 225px;
+        }
+
+        #content1{
+            resize: none;
+
+        }
+
+        #tbtn{
+            text-align: center;
+        }
+
         thead, tfoot{
             background-color: yellowgreen;
             color: white;
         }
 
-        tbody{
+        #tb2{
             background-color: antiquewhite;
+            box-sizing: border-box
+
         }
+
+        #th1{
+            height: 30px;
+        }
+
+        #th4,#th5{
+            width: 100px;
+        }
+
+        #td1{
+            width: 400px;
+        }
+
+
+
+
     </style>
 </head>
 <body>
@@ -21,22 +53,24 @@
         <fieldset>
             <legend>공지사항 작성하기</legend>
             
-            <table>
+            <table id="tb1">
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" id="title" style="width: 225px;" placeholder="제목을 입력하시오." required></td>
+                    <td><input type="text" name="title" id="title1" placeholder="제목을 입력하시오." required></td>
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td><textarea name="content" id="" cols="30" rows="10" style="resize: none;" placeholder="내용을 입력하시오." required></textarea></td>
+                    <td><textarea name="content" id="content1" cols="30" rows="10" placeholder="내용을 입력하시오." required></textarea></td>
                 </tr>
                 <tr>
                     <th>첨부파일</th>
                     <td><input type="file" name="uploadFile" id="uploadFile"></td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td style="text-align: center;"><button>작성하기</button></td>
+                    <td><br></td>
+                </tr>
+                <tr>
+                    <th colspan="2" id="tbtn"><button>작성하기</button> </th>
                 </tr>
 
             </table>
@@ -46,13 +80,13 @@
         <hr>
         <br>
 
-        <table border="1">
+        <table id="tb2" border="1" >
             <thead>
                 <tr>
-                    <th>번호</th>
+                    <th id="th1">번호</th>
                     <th colspan="2">제목</th>
-                    <th>작성자</th>
-                    <th>작성일</th>
+                    <th id="th4">작성자</th>
+                    <th id="th5">작성일</th>
                     <th>조회수</th>
                 </tr>
             </thead>
@@ -61,7 +95,7 @@
             <tbody>
                 <tr>
                     <td>9</td>
-                    <td>공지사항 제목 9</td>
+                    <td id="td1">공지사항 제목 9</td>
                     <td><button>바로가기</button></td>
                     <td>user01</td>
                     <td>2021-03-29</td>
