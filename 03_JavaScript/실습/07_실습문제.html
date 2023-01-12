@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 실습 문제 2</title>
+    <style>
+        .area{
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>배열 실습 문제 2</h1>
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label> <br>
+        <label id="stringla2">e v o l</label> <br>
+    </fieldset>
+
+
+    <br>
+    <div id="area1" class="area"></div>
+
+    <button onclick="test2();">처리</button>
+
+    <script>
+        function test2(){
+            const area1 = document.getElementById("area1");
+
+            const str1 = document.getElementById("stringla1").innerHTML;
+            const str2 = document.getElementById("stringla2").innerHTML;
+            
+            const str3 = str1.split("");
+            const str4 = str2.split("");
+
+            console.log(str3);
+
+            
+
+            area1.innerHTML += str3.reverse() + str4.reverse();
+
+
+
+        }
+    </script>
+
+    
+</body>
+</html>
