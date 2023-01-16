@@ -9,9 +9,14 @@
     <style>
         #div-bg{
             background-color: white;
+            /* 배경색은 흰색으로 */
             padding: 20px;
+            /* 여백주기 */
             border: 30px solid blue;
             width: 50%; /*테두리 빼고 컨텐츠만*/
+            /* 가로길이 : 화면의 50%차지하도록 (테두리 제외한 내용의 길이만 취급) */
+            /* box-sizing: border-box; */
+            /* 가로 길이가 테두리까지 포함한 가로길이가 되도록 */
         }
 
         .div-test{
@@ -23,39 +28,53 @@
 
         #div1{
             background-clip: border-box;
+            /* 테두리 영역까지 배경색 부여 */
         }
 
         #div2{
             background-clip: padding-box;
+            /* padding 영역까지만 배경색 부여 */
         }
 
         #div3{
             background-clip: content-box;
+            /* 컨텐츠 영역만 배경색 부여 */
         }
 
         #test{
             border: 1px solid black;
-            width: 70%;
+            width: 70%; 
+            /* 부모요소의 70% */
             height: 800px;
 
             background-image: url("resources/image/bgsample.PNG");
+            /* 이미지 링크 입력으로 배경 설정 */
             background-repeat: repeat; /*기본값임*/
             background-repeat: repeat-x;
+            /* 가로만 반복 됨 */
             background-repeat: repeat-y;
+            /* 세로만 반복됨 */
             background-repeat: no-repeat;
+            /* repeat 기본값 no-repeat 설정해주면 사진이 반복되어 채워지지 않는다. */
             background-size: auto; /*기본값*/
-            background-size: contain; /*가로획이던 세로획이던 채우고나면 끝남*/
+            background-size: contain;
+            /*가로획이던 세로획이던 채우고나면 끝남*/
+            /* 해당 요소 안에 이미지가 다 보여지게 끔 크기 조정됨 */
             background-size: cover;
+            /* 해당 요소 안에 이미지가 가득 차게끔 크기 키움 */
             background-size: 300px 200px;
             background-size: 50% 50%;
+            /* auto가 기본값, 사진원본 크기로 적용됨 -> 가로50% 세로50%으로 지정 px도 가능 */
             background-position: left top; /*기본값*/
             background-position: right top;
             background-position: right bottom;
+            /* left top 기본값이며 left|right|center|top|bottom|center 중 선택, % % px px 도 가능함 */
             background-position: center bottom;
             background-position: center center;
             background-position: 50% 50%;
             background-attachment: scroll; /*기본값*/
             background-attachment: fixed;
+            /* scroll 이 기본값이며, 이미지가 항상 전체 화면의 가운데에 고정 */
 
         }
 

@@ -218,7 +218,8 @@
     국어점수 : <input type="number" name="" id="kor"> <br>
     수학점수 : <input type="number" name="" id="math"> <br>
     영어점수 : <input type="number" name="" id="eng"> <br><br>
-
+    <!-- 이름과 각 과목별 점수 전달해줄 input요소 만들기 -->
+    
     <button onclick="test5();">실행확인</button>
     <div id="area5" class="area big"></div>
 
@@ -228,9 +229,11 @@
             const student = {
                 name:document.getElementById("name").value,
                 kor:Number(document.getElementById("kor").value), // "70" -> 70
-                math:Number(document.getElementById("math").value),
+                math:Number(document.getElementById("math").value), // 정수 형태로 변환
                 eng:Number(document.getElementById("eng").value),
                 toString:function(){
+                    // 내가 만든 객체에는 toString메소드가 존재하지 않기 때문에
+                    // 따로 만들어 줘야함. 그래야 객체 전달만으로 출력가능!
                     // return "안녕";
                     return this.name + " " + this.kor + " " + this.math + " " + this.eng;
                 },
@@ -301,6 +304,7 @@
 
             // 객체의 속성을 제거
             delete(student.hobby);
+            // hobby 속성 자체가 사라지게 됨. 그러나 toString 메소드에 hobby 부분이 적혀잇기 때문에 화면에는 출력될것임!
             area6.innerHTML += student + "<hr>";
 
 

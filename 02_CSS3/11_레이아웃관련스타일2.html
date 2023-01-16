@@ -10,6 +10,7 @@
         .positioning{border: 1px solid black;}
 
         .outer{position: relative;} /*기준이라는 뜻*/
+        /* 부모요소의 position을 relative로 해놓기.기준으로 삼기 */
 
         #first{
             width: 300px;
@@ -21,7 +22,7 @@
             width: 200px;
             height: 200px;
             background-color: yellowgreen;
-            position: absolute; /*내가 원하는 위치로 움직이겠다.*/
+            position: absolute; /*내가 원하는 위치로 움직이겠다.(절대위치로 지정)*/
             top: 50px;
             left: 50px;
             /* position:relative로 세팅된 부모요소로부터 위쪽으로 50px, 왼쪽으로 50px 떨어진 자리에 위치함 */
@@ -56,6 +57,7 @@
             top: 100px;
             left: 100px;
             z-index: 999;
+            /* index 숫자가 클수록 우선적으로 위로 올라가게 됨. 아예 이렇게 큰숫자로 해서 무조건 위에 올라와야 할 것들을 가장 위로 올라오도록 설정 */
         }
 
         #z2{
@@ -89,9 +91,14 @@
 </head>
 <body>
     <h1>배치관련 스타일</h1>
-    <h3>position : 상대위치(relative)와 절대위치(absolute)</h3>
+    <h3>position : 페이지의 요소를 자유롭게 배치해주는 속성</h3>
+    <p>
+        상대위치(relative)와 절대위치(absolute)
+    </p>    
+    
 
     <div class="outer">
+        <!-- 전체를 감싸는 div -->
         <div class="positioning" id="first">첫번째자식</div>
         <div class="positioning" id="second">두번째자식</div>
         <div class="positioning" id="third">세번째자식</div>

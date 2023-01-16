@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>[window.]open("url","창이름","창의특성")</h3>
+    
+    <ul>
+        <li>url : 새창에서 열고자하는 url 주소</li>
+        <li>창 이름 : 창 이름이 같은게 이미 열려잇을 경우 새로이 열리지 않고 이미 열려있는 곳에서 새로고침</li>
+        <li>창의 특성 : 새창의 너비, 높이, 주소창 여부, 툴바여부, 스크롤바 여부 등 새로운 창의 특성(브러우저마다 적용범위 다름)</li>
+    </ul>
+
+    <button onclick="test1();">네이버</button>
+
+
+    <b>px</b><br>
+        * width : 창의 너비<br>
+        * height : 창의 높이
+
+    <script>
+        function test1(){
+            // window.open(); // 아무것도 입력하지 않으면 빈 탭이 뜨게됨
+			// window.open("http://www.naver.com") // 네이버 창이 새 탭으로 뜨게됨
+
+
+            // window.open("http://www.naver.com", "네이버당", "width=500, height=600");
+
+            // window.open("http://www.naver.com", "네이버당", "width=500, height=600, resizable=no, location=yes, menubar=yes, status=yes, scrollbars=yes, toolbar=yes");
+
+            window.open("http://www.naver.com", "네이버당", "width=500, height=600, resizable=no, location=no, menubar=no, status=no, scrollbars=no, toolbar=no");
+        }
+        // url만 전달 할 경우, 새탭으로 네이버 페이지가 열리며, 여러번 버튼틀 누를 경우, 창의 이름을 아직 설정해주지 않았기 때문에 클릭하는 수 만큼으로 새 탭(네이버페이지)가 뜨게 된다.
+        // 창 이름을 지정해줄 경우, 이미 같은 창 이름의 창 이름이 떠 있으면, 버튼틀 클릭 할 때마다 새로운 탭이 열리는 것이 아니라, 기존의 창에서 새로고침 되어 페이지가 뜨게 된다.
+
+
+        // ** 공통 : 주소창 수정안됨, toolbar없음, 상태표시줄 없음, 메뉴바 없음
+        // ** 크롬 : 스크롤바 있음, resizable가능
+        // ** IE : 스크롤바 없음, resizable불가능
+
+        // - yes | no
+        // - resizable : 창 크기 조절 가능 여부
+        // - location : 주소창
+        // - menubar : 메뉴바
+        // - scrollbars : 스크롤바
+        // - status : 상태표시줄
+        // - toolbar : 도구모음
+
+</script>
+
+
+    <h3>window객체의 timer 관련 메소드</h3>
+
+    <h4>setTimeout(함수, 일정시간ms) : 내가 제시한 일정시간 후에 해당 함수 "단 한번"만 실행</h4>
+
+
+    <!-- 
+        창이 열릴때마다 하나씩 만들어지는 객체가 window객체인데,
+        open을 통해서 새로운 window객체 하나를 생성 후 반환을 해주는 개념이다.
+        이때 만들어진 window객체를 변수 안에도 넣을 수 있고,
+        그 변수를 통해서 윈도우객체 안의 메소드들에 접근 가능하다.(여기서는 alert()메소드 사용!)
+     -->
+
+
+    <button onclick="test2();">버튼</button>
+
+    <script>
+        function test2(){
+            const myWindow = window.open(); // 새로열린 창의 window객체를 반환
+
+            // myWindow.alert("알림창!"); // 새로 연 창에서 알림창 발생시키기
+			// myWindow.close(); // 알람창에서 확인 버튼 클릭하면 페이지 닫기
+            
+            myWindow.alert("3초 후에 이 페이지는 종료됩니다!");
+
+            setTimeout(function(){
+                myWindow.close();//이 익명함수를 실행해 줄 것이고
+            }, 3000); //해당 초 뒤에 위 익명함수를 실행해줄것이다. ms 단위로 써주어야 함
+
+        }
+
+</script>
+
+
+    <hr>
+
+    <h3>[window.]setInterval(함수, 일정시간ms) : 해당  초 마다 함수가 매번 실행되도록 하는 메소드</h3>
+
+    <button onclick="test3();">실행확인</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function test3(){
+            // const area1 = document.getElementById("area1");
+
+            // let count = 1;
+            // setInterval(function(){
+            //     area1.innerHTML = count++; // 1초 간격으로 1씩 증가되는 숫자가 div에 출력됨
+            // }, 1000);
+
+            // *시계만들어보기
+            
+            // const area1 = document.getElementById("area1");
+
+            // setInterval(function(){
+
+            //     const now = new Date(); // 현재 시간 가져오기
+
+            //     const hour = now.getHours(); // 매 초마다 시간 가져오기
+            //     const min = now.getMinutes(); // 매 초마다 분 가져오기
+            //     const sec = now.getSeconds(); //// 매 초마다 초 가져오기
+
+            //     area1.innerHTML = hour + " : " + min + " : " + sec; 
+
+            // }, 1000);
+
+
+            // **두자릿수 이하일 경우 앞에 0 붙여서 출력해보기
+            
+            const area1 = document.getElementById("area1");
+
+            setInterval(function(){
+
+                const now = new Date();
+
+                let hour = now.getHours();
+                let min = now.getMinutes();
+                let sec = now.getSeconds();
+
+                if(hour < 10){
+                    hour = "0" + hour;
+                }
+
+                if(min < 10){
+                    min = "0" + min;
+                }
+
+                if(sec < 10){
+                    sec = "0" + sec;
+                }
+
+                area1.innerHTML = hour + " : " + min + " : " + sec; 
+
+            }, 1000);
+
+        }
+</script>
+
+
+<hr>
+
+<h1>BOM(Browser Object Model)</h1>
+
+<h3>location 객체</h3>
+<p>
+    브라우저 주소창과 관련된 객체이다 <br>
+    location 객체를 출력해 볼 수도 있다! <br>
+    http가 아닌 우리가 만든 html을 띄우고 있기 때문에 file:///이 쓰이고 있는 것을 볼 수 있음
+</p>
+
+
+<pre>
+    a 태그는 다른 태그와는 달리 속성 자체에 href속성을 제공하여 클릭시 요청한 url로 이동이 가능하게 해준다.
+    따라서 아래와 같이 button을 생성해주고 속성값으로 href와 주소를 전달해 주어도, 네이버 창으로 이동이 불가능하다!
+</pre>
+
+<b>href 속성</b>
+<a href="http://www.naver.com">네이버로 이동</a> <!--이동됨!-->
+<br>
+
+<button href="http://www.naver.com">네이버로 이동</button> <!--이동 안됨-->
+
+<button onclick="location.href = 'http://www.naver.com';">네이버로 이동</button>
+<!--이동 가능!-->
+<!--location의 href속성에 접근해서 링크 입력해 주어야 함-->
+
+<div onclick="location.href='http://www.naver.com';">네이버로 이동</div>
+<!--div요소에도 적용 가능!-->
+
+
+<b>assign, replace 속성</b>
+<button onclick="location.assign('http://www.google.com');">구글로 이동</button> <br>
+<button onclick="location.replace('http://www.google.com');">구글로 이동</button>
+<!-- assign은 페이지 이동 후 뒤로가기가 가능하지만, replace는 뒤로가기를 사용할 수 없음! -->
+
+
+<h3>나만의 새로고침 버튼 만들기 reload와 href 대입하기</h3>
+<!-- 
+    href에 현재 지금 location의 href 속성값을 대입시켜준 방법으로 새로고침을 할 경우
+    새로고침 시 페이지 제일 상단으로 이동되면서 새로고침이 되는 반면,
+    reload는 위로 올라가지 않고 현재 위치에서 페이지가 새로고침이 된다.
+ -->
+
+<h3>screen 객체</h3>
+
+<button onclick="console.log(screen);">screen객체확인</button>
+
+<!-- 
+    width, height는 현재 모니터의 크기,
+    available width와 height는 브라우저 창에 표시되는 창의 크기로,
+    height는 주소창, 메뉴바를 제외한 내용이 표시되는 안쪽 구간만 해당이 된다.
+    또한 이는 모니터의 크기나 화면 해상도에 따라서 달라질 수 있다.
+ -->
+
+
+<h3>navigator 객체</h3>
+<p>브라우저간의 호환성 체크를 할 때 navigator 객체를 사용하게 됨!</p>
+
+<h3>history 객체</h3>
+<p>오류가 발생했을 때 이전페이지로 돌아가는 것과 같은 기능을 구현할 때 사용하게 된다!</p>
+
+<hr>
+
+<h1>DOM(Document Object Model)</h1>
+
+<p>
+    HTML에 있는 각각의 요소들은 노드(Node)라고 한다. <br>
+    노드는 두 가지로 이야기를 할 수 있는데,
+</p>
+<pre>
+    - 요소노드(Element Node) : 태그 그 자체만을 의미
+    - 텍스트노드(Text Node) : 태그 내에 기록되는 내용
+    - 텍스트노드가 존재하는 요소(시작태그와 종료태그가 한쌍으로 이뤄져있음) : div, h1, li, p, a
+    - 텍스트노드가 존재하지 않는 요소(시작태그로만 이뤄져있음) : input, img, ...    
+</pre>
+
+<div>
+    <input type="text">
+    <h1>안녕</h1>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+    </ul>
+</div>
+
+<h3>노드(요소) 생성과 관련된 메소드</h3>
+
+<h4>텍스트 노드가 존재하는 노드 생성 (시작태그+종료태그)</h4>
+
+<button onclick="test4();">요소생성</button>
+<div id="area2"></div>
+
+<script>
+    function test4(){
+        // <h3>안녕하세요</h3>
+
+        // 동적으로 요소 만드는 방법1. "문자열"로 만드는 방법
+                    document.getElementById("area2").innerHTML = "<h3>안녕하세요</h3>";
+
+                    // 동적으로 요소를 만드는 방법2. document에서 제공하는 메소드를 통해 "요소객체"로 만드는 방법
+                    // ElementNode 객체 생성 : document.createElement("태그");
+        let elementNode = document.createElement("h3"); // <h3></h3>
+        // TextNode 객체 생성 : document.createTextNode("문구");
+        let textNode = document.createTextNode("안녕하세요"); // 안녕하세요
+
+        // 두개의 노드를 결합(즉, 요소노드 하위로 텍스트노드 추가)
+        elementnod.appendChild(textNode); // <h3>안녕하세요</h3>
+
+                    console.log(elementNode); // 콘솔창에 출력해보기
+                    document.getElementById("area2").appendChild(elementNode);
+                    // div요소에 출력해 주려면 appendChild를 사용해 주어야 함!
+    }
+</script>
+
+<h4>텍스트 노드가 존재하지 않는 노드 생성 (시작태그만 존재하는)</h4>
+
+<button onclick="test5();">요소생성</button>
+<div id="area3"></div>
+
+<script>
+    function test5(){
+        // <img src="" width="" height="">
+
+        let img = document.createElement("img"); // <img>
+
+        // 속성추가
+        img.src = "https://www.iei.or.kr/resources/images/main/main_renewal/top_logo_s.jpg";
+        img.width = "100";
+        img.height = "30";
+
+        console.log(img);
+
+        document.getElementById("area3").appendChild(img);
+
+    }
+</script>
+
+
+<h4>노드(요소) 삭제와 관련된 메소드</h4>
+
+<button onclick="test6();">요소삭제</button>
+
+<script>
+    function test6(){
+        // 지우고자하는요소객체.remove();
+                    //document.getElementById("area3").remove();
+                    //위와 같이 하면 요소객체가 통째로 제거됨
+        document.getElementById("area3").firstChild.remove();
+                    // 첫번째 자식요소부터 차례대로 제거하는 방법
+    }
+</script>
+
+</body>
+</html>

@@ -35,7 +35,44 @@
         4) 선택한요소.innerHTML | innerText = "요소에 출력할 문구";
      </p>
 
+     <h3>1)alert 알림창에 데이터 출력해보기</h3>
+     <!-- <button onclick="window.alert();">알림창 출력</button> -->
+
+     <button id="btn">알람창 출력</button>
+     <!-- <button onclick="btnClick();">콘솔 출력</button> -->
+     <script>
+        var btn = document.getElementById("btn");
+        // document(현재 이 문서에 있는).요소를 id로 가져오겠다.
+        // 이벤트로 부여하고자 하는 요소 선택해서 변수 담기
+        // var 는 변수를 선언함을 뜻함
+
+        btn.onclick = function(){
+            window.alert("버튼클릭!!");
+        };
+        // 해당 버튼 요소에 클릭 이벤트 발생시 실행할 함수(이벤트 핸들러) 정의
+     </script>
+
+    <h3>2)console창에 입력한 데이터 출력하기</h3>
+    <p>
+        웹페이지에 들어가서 개발자도구(f12)를 열명 콘솔창이 보이는데, 그 콘솔차에 이벤트가 발생했을시에 출력해줄 데이터를 입력해보자.
+    </p>
+    <!-- <button onclick="console.log();">콘솔출력</button> -->
+
+    <button onclick="btnClick();">콘솔출력</button>
+
+    <script>
+        function btnClick(){
+            console.log("버튼클릭!!");
+        }
+        // 콘솔에 버튼 클릭이라는 데이터 값 출력
+
+    </script>
+
+
      <h3>3)document.write("화면상 출력할 문구")</h3>
+     <p>
+        해당 버튼을 클릭할 경우 화면 전체에 데이터 값을 출력하도록 해보기
+     </p>
      <button onclick="documentWrite()">화면에 출력</button>
 
     <script>
@@ -155,9 +192,14 @@
     <script>
         function testPrompt1(){
             var name = prompt("당신의 이름은 무엇입니까?");
+            // prompt 에 입력된 데이터를 
+            // name 변수에 저장
             var age = prompt("당신의 나이는 몇살입니까?");
+            // prompt 에 입력된 데이터를
+            // age 변수에 저장
 
-            // console.log(name);
+
+            // console.log(name); // 콘솔창에서 확인가능
             // console.log(age);
             // console.log(7); // 콘솔에 숫자가 입력되면 파란색으로 보임
 
@@ -206,6 +248,9 @@
 
     <!-- 인풋은 닫히는 태그가 없기 때문에 무조건 value로 끝난다. -->
     <h3>4) 선택한 input요소.value</h3>
+    <p>
+        input을 통해 텍스트 상자에 입력한 값들을 innerHTML, innerText가 아닌 value로 접근해야한다.
+    </p>
     아이디 : <input type="text" id="userId"> <br>
     비밀번호 : <input type="password" id="userPwd"> <br>
     <button onclick="testinput();">클릭</button>
@@ -216,7 +261,9 @@
     <script>
         function testinput(){
             var input1 = document.getElementById("userId");
+            // 아이디 input 요소 객체
             var input2 = document.getElementById("userPwd");
+            // 비밀번호 input 요소 객체
 
             console.dir(input1);
 
@@ -224,14 +271,21 @@
             // console.log(input2.value);
 
             var id = input1.value;
+            // id 값 가져오기
             var pwd = input2.value;
+            // pwd 값 가져오기
 
             // document.getElementById("area5").innerHTML = id + "," + pwd; // 인풋은 value 속성을 가지고 있어서 innerHTML 은 안된다
             document.getElementById("area5").value = id + "," + pwd;
+            area5 input에 넣어주기
 
             //클릭버튼을 누르면 각각의 인풋창이 초기화 됏으면 좋겠다.
             input1.value="";
+            // 넣어주고 난 뒤 비워주기
             input2.value="";
+
+            // 값을 입력하고 클릭버튼을 클릭하면 오른쪽과 같이 아이디와 비밀번호에 담겨잇던 값은 없어지고,
+            // 새로운 input박스(area5)에 값이 지정해준 형태로 담기게 된다.
 
 
         }

@@ -109,9 +109,10 @@
 
     <script>
         function test3(){
-            console.log(arguments);
-
+            console.log(arguments); 
+            // [11, 12, 1, 5, 7]
             console.log(arguments[0]);
+            // 11
 
             const area4 = document.getElementById("area4");
 
@@ -121,6 +122,7 @@
             }
 
             area4.innerHTML += "총합 : " + sum + "<br>";
+            area4.innerHTML += "평균 : " + sum/arguments.length + "<br>";
         }
     </script>
 
@@ -181,6 +183,8 @@
     <h3>* 익명함수를 리턴</h3>
     이름 : <input type="text" name="" id="userName">
     <button onclick="test7()();">실행확인</button>
+    <!-- test7()이 실행되어 반환되는 값이 익명함수 function. 때문에 이 메소드를 다시 호출 시켜주려면 -->
+    <!-- ()를 한번 더 입력해야한다. -->
 
     <script>
         function test7(){

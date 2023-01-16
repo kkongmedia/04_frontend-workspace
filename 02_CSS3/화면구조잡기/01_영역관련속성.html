@@ -29,6 +29,7 @@
 
 
         .wrap{
+            /* 안에 들어갈 div들을 감싸는 div */
             border: 5px solid red;
 
             width: 400px;
@@ -37,6 +38,9 @@
 
 
             box-sizing: border-box;
+            /* 내가 지정한 width, heigth 를 어느 영역까지의 범위로 할 것인지 지정
+                border-box : border까지를 width height 치수로 친다.
+                content-box : content영역의 사이즈만을 width height 치수로 친다. border는 별개*/
         }
 
         /* 공통 속성 */
@@ -51,6 +55,7 @@
         .test1{
             height: 40%;
         }
+        /* 세로로 2등분 */
 
         .test2{
             height: 60%;
@@ -59,13 +64,16 @@
         .test3, .test4{
             border: 5px solid blue;
             height: 100%;
+            /* 높이는 부모요소와 일치 */
             box-sizing: border-box;
             float: left;
+            /* 옆으로 붙여서 해주도록 float 사용하기 */
         }
 
         .test3{
             width: 30%;
         }
+        /* 가로길이가 부모요소 30% 차지하도록 설정 */
 
         .test4{
             width: 70%;

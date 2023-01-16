@@ -5,9 +5,17 @@
     <title>영역관련태그</title>
     <style>
         div{
-            width: 200px;
+            /* 네모상자 크기 지정해주기 */
+            width: 200px; 
             height: 200px;
-            border: 1px solid black;
+            border: 1px solid black; /* 테두리 굵기 및 색상 */
+        }
+
+        span{
+            width: 200px; 
+            height: 200px;
+            border: 1px solid black; /* 테두리 굵기 및 색상 */
+            /* 인라인 요소에는 대부분 가로, 세로길이 지정 불가하다. */
         }
     </style>
 </head>
@@ -35,7 +43,7 @@
     <div style="background-color: yellow;">세번째 영역</div>
 
     <h3>span 태그</h3>
-    <p>span태그는 인라인요소로 content 영역만 차지(줄바꿈이 발생되지 않고 옆으로 영역이 잡힘</p>
+    <p>span태그는 인라인요소로 content 영역만 차지(줄바꿈이 발생되지 않고 옆으로 영역이 잡힘-수동적으로 해줘야함)</p>
 
     <span style="background-color: green;">첫번째 영역</span>
     <span style="background-color: blue;">두번째 영역</span>
@@ -73,7 +81,7 @@
     <br>
 
     <iframe width="400" height="200" src="https://www.youtube.com/embed/UHaVoyUEBBI" title="잔잔한 재즈 음악과 기분 좋은 보사노바☕ 포지티브 재즈 라운지의 음악" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <!-- src에 유튜브 영상에서 복사한 소스코드를 입력하면 유튜브 영상 재생창이 추가된다. -->
 
 
 </body>

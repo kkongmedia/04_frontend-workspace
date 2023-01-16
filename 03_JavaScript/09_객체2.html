@@ -27,10 +27,11 @@
             const student1 = {name:"박연진", java:60, oracle:100, html:80, css:70};
             const student2 = {name:"이사라", java:70, oracle:80, html:100, css:50};
             const student3 = {name:"전재준", java:100, oracle:60, html:80, css:50};
+            // 여러학생들의 정보를 한 공간안에 담아서 관리하기 위해, 배열에 넣어줌
 
             const students = []; // 빈 배열 생성
 
-            students.push(student0);
+            students.push(student0); // 비어있는 배열에 객체 넣어주기
             students.push(student1);
             students.push(student2);
             students.push(student3);
@@ -39,7 +40,7 @@
             console.log(students[0]);
             console.log(students[1].name);
 
-            // 객체.속성 = 새로운값;
+            // 객체.속성 = 새로운값; 으로 JavaScript 점수와 메소드 두개 추가해주기
             for(let i in students){
                 students[i].javascript = 100;
                 students[i].getSum = function(){
@@ -109,6 +110,101 @@
             }
         }
     </script>
+
+    <hr>
+
+    <h3>* Data 내장 객체</h3>
+    <p>
+        날짜와 관련된 JavaScript에 내장된 객체이다.
+    </p>
+
+    <button onclick="test3();">실행확인</button>
+    <div id="area3" class="area"></div>
+
+    <script>
+        function test3(){
+            const area3 = document.querySelector("#area3");
+
+            const date1 = new Date(); // 현재 날짜 및 시간
+
+            area3.innerHTML += "Date : " + date1 + "<br>";
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 지정시간</h3>
+
+    <button onclick="test4();">실행확인</button>
+
+    <div id="area4" class="area"></div>
+
+
+    <script>
+        function test4(){
+            const area4 = document.querySelector("#area4"); 
+
+            const date1 = new Date(); // 현재 날짜 및 시간
+         
+						// 2021년 7월 27일로 세팅
+            const date2 = new Date(2021, 7-1, 27);
+						// 월에 +1이 되어서 나오므로 -1해준 값을 넣어주기
+
+						// 시간까지
+            const date3 = new Date(2021, 7-1, 27, 15, 20, 30);
+
+						// 밀리세컨초까지
+            // ls == 1000ms
+            // 5s == 5000ms
+            const date4 = new Date(2021, 7-1, 27, 15, 20, 30, 5000); // 30초에 + 5초되서출력
+
+            area4.innerHTML += "Date() : " + date2 + "<br>"
+						area4.innerHTML += "Date(년, 월, 일, 시, 분, 초) : " + date3 + "<br>";
+						area4.innerHTML += "Date(년, 월, 일, 시, 분, 초, 밀리세컨) : " + date4 + "<br>";
+
+						// 특정 단위의 시간만 필요할때!
+						area4.innerHTML += "년도 : " + date1.getFullYear() + "<br>";
+						area4.innerHTML += "월 : " + (date1.getMonth() + 1) + "<br>";
+						// 월에 -1이 되기때문에 +1 해주어야함
+						area4.innerHTML += "일 : " + date1.getDate() + "<br>";
+						area4.innerHTML += "요일 : " + date1.getDay() + "<br>";
+						// 요일별로 정해진 숫자가 있음 월:1, 화:2, 수:3, ...
+						// 시 : getHours() / 분 : getMinutes() / 초 : getSeconds()
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>Dday</h3>
+
+    <button onclick="test5();">실행확인</button>
+
+    <div id="area5" class="area"></div>
+
+    <script>
+        function test5(){
+					 const area5 = document.querySelector("#area5");
+
+            // 현재날짜부터 종강일(2022년 3월 3일)까지 남은 일수 dday
+            const end = new Date(2022, 3-1, 3); // 종강날짜
+            const now = new Date();
+
+						area5.innerHTML += (end-now);
+            // 현재날짜부터 종강날짜까지 몇 밀리세컨초 남았는지 알려주고 있음
+
+						/*
+                1s == 1000ms
+                1m == 60s == 60000ms
+                1h == 60m == 60*60s == 60*60*1000ms
+                1d == 24h == 24*60m == 24*60*60s == 24*60*60*1000ms
+            */
+
+						const dday = (end-now) / (24*60*60*1000); // '일'단위로 나눠줌
+            alert("종강까지 " + Math.round(dday) + "일 남았습니다.");
+        }
+</script>
+
 
 
 </body>

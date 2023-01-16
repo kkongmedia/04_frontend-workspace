@@ -47,13 +47,15 @@ div[class*=i]{
 /* #test1>*{background-color: pink;} */
 
 /* 아이디가 test1인 요소의 자손들 중 h4요소만 선택 */
+/* 자손은 바로 아래 자손만 선택 가능 */
 #test1>h4{background-color: orangered;}
 
 /* #test1>li{background-color: darkcyan;} */
-
+/* 아이디가 test1인 요소의 자손중 ul 자손의 자손인 li 들에게 스타일 적용하기 */
 #test1>ul>li{background-color: darkcyan;}
 
 /* a b : a요소의 후손(모든 하위요소)들 중에서 b 요소만 선택 */
+/* test1의 모든 후손들 중 li 만 스타일 부여 */
 #test1 li{color: red;}
 
 
@@ -61,6 +63,7 @@ div[class*=i]{
 /* 3. 동위 선택자 ------------------------------------------------------------------ */
 
 #test2+div{background-color: yellow;}
+/* test2 뒤의 div 요소들 하나만 선택됨 */
 
 /* 제대로 선택안됨(바로 뒤에 있는 요소가 아니기 때문) */
 #test2+ul{background-color: pink;}
@@ -68,6 +71,7 @@ div[class*=i]{
 /* #test2~div{background-color: green;} */
 
 #test2~ul{background-color: deeppink;}
+/* test2 요소 뒤에 있는 모든 ul요소에 스타일 적용 */
 
 /* 4. 반응선택자 ------------------------------------------------------------------- */
 
@@ -76,6 +80,7 @@ div[class*=i]{
     width: 100px;
     height: 100px;
     cursor: pointer;
+    /* 먼저 버튼처럼 크기를 키워서 만들어주기 */
 }
 
 #active-test:active{
@@ -93,16 +98,20 @@ div[class*=i]{
 input[type=checkbox]:checked{
     width: 20px;
     height: 20px;
+    /* 네모박스 크기 변경되도록 */
 }
 
 input[type=checkbox]:checked+label{
     font-size: 20px;
+    /* 선택되면 글자크기가 커지도록 설정 */
 }
 
 
 input[name^=user]:focus{
     background-color: pink;
+    /* 선택되었을 경우 스타일 적용 */
 }
+
 
 
 button:enabled{

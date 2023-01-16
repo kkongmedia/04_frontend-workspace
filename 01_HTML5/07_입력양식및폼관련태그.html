@@ -12,11 +12,17 @@
     <h2>input 태그</h2>
     <p>사용자에게 값을 입력 받을 수 있는 텍스트상자 또는 체크박스 등등을 만들 수 있음</p>
 
-    아이디 : <input type="text"> <br> <!--인라인 요소라서 br로 줄바꿈 해줘야함. 블럭요소였다면 br를 사용하지 않고 줄바꿈-->
+    아이디 : <input type="text"> <br>
+    <!-- 종료태그 없음 -->
+    <!--인라인 요소라서 br로 줄바꿈 해줘야함. 블럭요소였다면 br를 사용하지 않고 줄바꿈-->
     비밀번호 : <input type="password"> <br>
+    <!-- type 을 password로 설정해주면 안보이게 가능 -->
     성별 : <input type="radio"> 남
             <input type="radio"> 여 <br>
+    <!-- type 을 radio로 설정해주면 체크박스 생성 가능 -->
     <input type="submit" value="회원가입">
+    <!-- 제출버튼 -->
+    <!-- value로 제출버튼 키워드 회원가입으로 바꿔 줄 수 있다. -->
 
     <hr>
 
@@ -38,6 +44,7 @@
     </p>
 
     <form action="search.do" method="post">
+        <!-- url에 전달된값 노출 안됨 -->
         <fieldset>
         검색어 : <input type="text" name="keyword">
         <input type="submit" value="검색">
@@ -46,6 +53,7 @@
 
     <fieldset>
         안녕하세요
+
     </fieldset>
 
 
@@ -56,8 +64,11 @@
     <h3>legend : 해당 그룹의 제목을 붙이는 태그</h3>
 
     <form action="test.do">
+        <!-- 임의로 지정 -->
     <fieldset>
+        <!-- 그룹으로 묶기 -->
         <legend>제목1</legend>
+        <!-- 제목 써주기 -->
         입력1 : <input type="text" name="text1" placeholder="입력해주세용"> <br>
         입력2 : <input type="text" name="text2"> <br>
     </fieldset>
@@ -88,26 +99,36 @@
     
             아이디 : 
             <input type="text" name="userId" placeholder="아이디를 입력해주세요" maxlength="12" required> <br>
+            <!-- maxlength : 텍스트 입력할 수 있는 최대 길이 지정해줌 -->
+            <!-- required : 필수로 입력해야 하도록 지정해주는 속성 -->
+            <!-- placeholder : 값을 입력하기 전에 띄워주는 메세지 -->
     
+
+
             <h3>type="password"</h3>
             <p>- 비밀번호를 입력할 수 있는 텍스트상자</p>
             비밀번호 :
             <input type="password" name="userPwd" placeholder="영문,숫자,특수문자 8~15" maxlength="15" required> <br>
+            <!-- 15로 제한을 걸었기 때문에, 15글자 초과 입력이 안됨 -->
     
             <h3>type="search|url|eamil|phone"</h3>
             <p>- 겉모습은 일반 텍스트 상자와 유사하지만 각각의 정보에 맞게 세분회된 기능 제공</p>
 
             검색 : 
             <input type="search" name="keyword"> <br>
+            <!-- type을 search로 해주면 박스 맨 뒤에 x 버튼이 생겨서 누르면 입력된 내용을 지워줌 -->
 
             홈페이지 : 
             <input type="url" name="homepage" value="http://"> <br>
+            <!-- 주소 형식을 입력하지 않고 다름 값을 입력했을때 유효한 url 형식이 맞는지 검사후 아니면 요청자체가 불가하게 메세지를 띄워줌 -->
             
             이메일 :
             <input type="email" name="email"> <br>
+            <!-- 옳바른 이메일 주소를 입력하지 않을 경우 유효성 겁사를 통해 메세지를 띄워줌 -->
 
             휴대폰 :
             <input type="phone" name="phone"> <br> <!--모바일로 열면 키패드가 열림-->
+            <!-- 모바일로 웹페이지를 열 경우 전화번호 입력할 때 키패드 창을 띄워줌 -->
 
             <input type="submit">
             <input type="reset">
@@ -127,7 +148,9 @@
             제목 : <input type="text" name="title" size="30"> <br>
             
             내용 : <textarea name="content" placeholder="내용을 입력해주세요" cols="35" rows="10" style="resize: none;"></textarea>
-            
+            <!-- cols, rows 로 크기 지정 -->
+            <!-- style="resources" : 크기 고정시키기 ! -->
+
         </fieldset>
         <input type="submit">
     </form>
@@ -146,12 +169,14 @@
 
         수량 : 
         <input type="number" name="amount" min="0" max="20" step="2" value="0"> <br>
+        <!-- min, max로 최소/최댓값 설정 가능. step으로 얼마씩 값을 올리고 내릴건지 지정!/value로 초기설정값 설정 가능 -->
 
         <h3>type="range"</h3>
         <p>- 슬라이드바를 통해 숫자 지정 가능</p>
 
         점수 :
         <input type="range" name="score" min="0" max="100" step="20"> <!--직관적이지 않아 잘 사용하지 않음--> <br>
+        <!-- min, max를 이용해서 최소, 최대값 설정 가능하고, 20단위(step) -->
 
         <input type="submit">
     </form>
@@ -196,6 +221,9 @@
 
         성별 : <input type="radio" name="gender" id="radioX" value="X" checked><!--radio checked 는 취소가 안됨-->
         <label for="radioX">선택안함</label>
+        <!-- label은 꼭 라디오 작은원을 클릭하지 않고 텍스트 "선택안함"을 클릭하고도 체크가 되게끔 해주는 기능이다. -->
+        <!-- 해당 radio의 id를 부여해준 후 label 랙 = "해당ID" 를 입력해주념 된다. -->
+        <!-- checked : 기본값으로 체크되어 있게 해주는 기능, 따라서 선택안함은 기본적으로 체크 됨 -->
 
         <input type="radio" name="gender" id="radioM" value="M">
         <label for="radioM">남자</label>
@@ -234,18 +262,16 @@
 
         <h3>type="color"</h3>
         <p>- 색상을 선택할 수 있는 input</p>
-
+        <!-- 색상 선택 후 입력하는 기능 -->
         색상선택 : <input type="color" name="color" id=""> <br>
-
 
         <h3>type="file"</h3>
         <p>- 첨부하고자 하는 파일을 선택할 수 있는 input</p>
-
+        <!-- 파일 첨부하는 기능 -->
         파일선택 : <input type="file" name="uploadFile" id=""> <br>
 
         <h3>type="hidden"</h3>
         <p>- 특정 값을 사용자에게 입력받지 않고, 화면에도 노출 시키지도 않고, 근데 넘기고자 하는 값이 있을 경우</p>
-
         <input type="hidden" name="hiddenValue" value="ㅋㅋㅋ" id="">
 
 

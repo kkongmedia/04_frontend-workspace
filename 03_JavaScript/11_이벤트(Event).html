@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>이벤트 모델 종류</h1>
+
+    <h3>고전 이벤트 모델(기존 이벤트 모델)</h3>
+    <p>
+        특정 요소객체를 가지고 와서 해당 요소의 이벤트 속성에 접근한 후, <br>
+        이벤트 핸들러를 연결하는 방식으로 이벤트를 제거할 수도 있다.
+    </p>
+
+    <button id="btn1">실행확인</button>
+    <button id="btn2">실행확인</button>
+    
+    <div id="area1" class="area"></div>
+
+
+    <script>
+        const area1 = document.getElementById("area1");
+
+        // const btn1 = document.getElementById("btn1");
+        // btn.onclick = function() {
+
+        // }
+
+        document.getElementById("btn1").onclick = function() {
+            area1.innerHTML += "btn1이 클릭되었습니다.<br>";
+        }
+
+        document.getElementById("btn2").onclick = function() {
+            area1.innerHTML += "btn2가 클릭되었습니다.<br>";
+            document.getElementById("btn1").onclick = null; // 이벤트 제거
+        }
+    </script>
+
+    <hr>
+
+    <h3>인라인 이벤트 모델</h3>
+    <p>
+        요소 내부에 직접적으로 이벤트속성 제시해서 실행할 내용을 정의하는 방식으로 <br>
+        주로 script태그 내에 정의되어있는 함수 호출하는 방식을 선호한다.
+    </p>
+
+    <button onclick="document.getElementById('area2').innerHTML += '첫번째 버튼 클릭<br>';">
+        실행확인</button>
+
+    <button onclick="test1();">실행확인</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+        function test1(){
+            document.getElementById("area2").innerHTML += "두번째 버튼 클릭<br>"
+        }
+    </script>
+
+    <hr>
+
+    <h3>표준 이벤트 모델(addEventListener)</h3>
+    <p>
+        w3c에서 공식적으로 지정한 이벤트 모델로 IE는 9버전 부터 지원한다.
+    </p>
+
+    <!-- 요소내부에 직접적으로 이벤트속성 기술 x -->
+    <button id="btn3">실행확인</button>
+
+    <script>
+        const btn3 = document.getElementById("btn3");
+
+        // 이벤트걸고자하는요소객체.addEventListener("이벤트명", 이벤트핸들러);
+        btn3.addEventListener("click", function(){
+            alert("표준이벤트 모델 테스트");
+        });
+
+        btn3.addEventListener("mouseenter", function(){
+            btn3.style.backgroundColor = "green";
+        });
+        // 마우스 올렸을때 버튼 색 green으로 바꿔주기 -> mouseenter
+        btn3.addEventListener("mouseout", function(){
+            btn3.style.backgroundColor = "pink"
+        });
+        // 마우스 영역밖으로 놓았을 때 pink로 바꿔주기
+    </script>
+
+    <hr>
+
+    <h1>2.현재 이벤트가 발생한 해당 요소객체에 접근하는 방법</h1>
+
+    <button id="btn4">고전이벤트방식</button>
+    <button id="btn5">표준이벤트방식</button>
+    <button onclick="test2();">인라인이벤트방식</button>
+
+    <button onclick="test3(this);">인라인이벤트방식2</button>
+
+    <script>
+        // 고전이벤트방식
+        document.getElementById("btn4").onclick=function(){ // 이벤트핸들러
+                console.log(e); // 매개변수를 통해 이벤트 객체 정보 출력
+                console.log(window.event); // 매개변수 이용하지 않고 출력하는 방법
+                            // 결과는 같다!
+
+                            // 현재 이벤트가 발생한 요소객체에 접근하고자 한다면
+                console.log(e.target);
+                console.log(windw.event.target);
+                console.log(this);
+
+                            // 요소객체에 접근하여 스타일 변경해주기
+                e.target.innerHTML = "버튼클릭됨";
+                window.event.target.style.backgroundColor = "salmon";
+                this.style.color = "white";}
+
+        // 표준이벤트방식
+        document.getElementById("btn5").addEventListener("click", function(){ // 이벤트핸들러
+                            console.log(e.target);
+                console.log(window.event.target);
+                console.log(this);
+            })
+
+        // 인라인이벤트방식
+        function test2(){
+
+                            //console.log(e);
+                console.log(window.event.target);
+                //console.log(this); // window 객체를 가리킴
+                window.event.target.innerHTML = "버튼변경";
+                    
+        }
+
+        function test3(el){
+                    el.style.backgroundColor = "yellow";
+        }
+    </script>
+
+<hr>
+
+<h1>3. 태그별 기본적으로 가지고 있는 이벤트 제거</h1>
+<p>
+    태그내에 기본적으로 설정되어있는 이벤트가 실행안되게끔 막고싶을때 사용하게 되며 <br>
+    이벤트 핸들러의 return 값을 false로 하면 기본이벤트가 실행되지 않는다.
+</p>
+
+<h3>기본적으로 이벤트를 가지고 있는 요소</h3>
+
+<li>
+    a 태그 : 클릭시 href에 제시되어있는 url요청하는 기본이벤트 보유
+</li>
+<li>
+    form내의 submit버튼 : 클릭시 사용자가 입력한 값들을 action에 제시되어있는 url로 제출하면서 요청하는 기본이벤트 보유
+</li>
+
+<!-- 기본이벤트가 있는 요소에 다시 또 이벤트 속성을 부여하면 현재 이 코드가 먼저 실행됨 -->
+<a href="http://www.naver.com" onclick="alert('alert이 먼저 실행');">네이버로 이동</a>
+<a href="http://www.naver.com" onclick="alert('alert이 먼저 실행'); return false;">네이버로 이동</a>
+<a href="http://www.google.com" onclick="return test4();">구글로 이동</a>
+
+
+<h3>내가 설정한 조건에 맞지 않을때, 기본 이벤트가 실행되지 않도록 해보기</h3>
+
+<form action="test.do" method="get">
+    아이디 : 
+    <input type="text" name="userId" id="userId"> <br>
+    비밀번호 : 
+    <input type="password" name="userPwd" id="userPwd"> <br>
+    비밀번호 확인 : 
+    <input type="password" id="checkPwd"> <br><br>
+
+    <input type="submit" onclick="return validate();"> 
+            // validate 함수를 실행하는 클릭 이벤트가 먼저 실행되고 반환된 값일 기본이벤트에 
+            // return해준다.
+</form>
+
+<script>
+    function validate() {
+            const userPwd = document.getElementById("userPwd").value;
+            const checkPwd = document.getElementById("checkPwd").value;
+
+						const userId = document.getElementById("userId").value;
+
+            // 아이디에 대한 유효성 검사
+            // 영문자 또는 숫자로만 5글자 이상 12글자 이하가 맞는지
+            // 맞지 않을 경우
+            // 알림창 출력 => 제출 불가하게끔 기본이벤트 막기
+
+						// 정규표현식을 통해서 유효한 아이디형식에 해당하는 특정패턴을 만들어두기
+            const regExp = /^[a-zA-Z0-9]{5,12}$/;
+						if(!regExp.test(userId)){
+                alert("유효한 아이디의 형식이 아닙니다! 다시 입력해주세요!");
+								document.getElementById("userId").select();
+								// 알람창 뜬 후 id영역 선택되게 되면서 다시 입력 유도하기
+                return false;
+            }           
+
+    				// 두개의 비밀번호가 일치하지 않을 경우
+            // 알람창 출력 => 제출 불가하게끔 기본이벤트 막기
+            if(userPwd != checkPwd){
+                alert("비밀번호가 일치하지 않습니다!");
+                return false;
+}
+</script>
+
+
+</body>
+</html>
