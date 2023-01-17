@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+</head>
+
+<body>
+    <h1>간이 계산기 만들기</h1>
+
+    첫번째 값 : <input type="text" id="num1"> <br> <br>
+    두번째 값 : <input type="text" id="num2"> <br> <br>
+
+    <input type="button" value="+" onclick="plus();">
+    <input type="button" value="-" onclick="minus();">
+    <input type="button" value="x" onclick="times();">
+    <input type="button" value="/" onclick="divide();">
+    <input type="button" value="%" onclick="percent();">
+    <br><br>
+
+    <h3>계산결과 : <div id="result"></div></h3>
+    <hr>
+
+    <script>
+        function plus() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            const result1 = Number(num1) + Number(num2);
+
+            document.getElementById("result").innerHTML = result1;
+        }
+
+        function minus() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            const result2 = Number(num1) - Number(num2);
+
+            document.getElementById("result").innerHTML = result2;
+        }
+
+        function times() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            const result3 = Number(num1) * Number(num2);
+
+            document.getElementById("result").innerHTML = result3;
+        }
+
+        function divide() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            const result4 = Number(num1) / Number(num2);
+
+            document.getElementById("result").innerHTML = result4;
+        }
+
+        function percent() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            const result5 = Number(num1) % Number(num2);
+
+            document.getElementById("result").innerHTML = result5;
+        }
+    </script>
+    
+</body>
+</html>

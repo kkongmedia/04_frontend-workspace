@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+
+    <style>
+        .area{border: 1px solid black; height: 50px;}
+    </style>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <h1>배열 실습 문제1</h1>
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과,바나나,당근</label> <br>
+        <label id="la2">김밥,치즈,떡볶이,햄버거</label> <br>
+        <label id="la3">환타,사이다,콜라</label> <br>
+        <label id="la4">고양이,강아지</label> <br>
+    </fieldset>
+
+    <br>
+
+    <input type="text" id="input" placeholder="찾을 문자열을 입력하세요"> <br>
+    <button onclick="test1();">전송 및 처리</button>
+    
+    <script>
+        function test1() {
+            
+            const la1 = document.getElementById("la1").innerHTML;
+            const la2 = document.getElementById("la2").innerHTML;
+            const la3 = document.getElementById("la3").innerHTML;
+            const la4 = document.getElementById("la4").innerHTML;
+
+            const str1 = la1.split(",");
+            const str2 = la2.split(",");
+            const str3 = la3.split(",");
+            const str4 = la4.split(",");
+
+            const arr = str1.concat(str2, str3, str4);
+
+            let input = document.getElementById("input");
+
+            let in1 = input.value;
+            
+            console.log(in1);
+
+            const index = arr.indexOf(in1);
+
+            if(index == -1) {
+                alert("존재하지 않습니다.");
+            }else {
+                alert(in1 + "은(는) 배열 index " + index + "번째에 존재합니다.")
+            }
+        }
+    </script>
+
+    <br><br>
+
+    <h1>배열 실습 문제2</h1>
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label> <br>
+        <label id="stringla2">e v o l</label> <br>
+    </fieldset>
+    <br>
+    <div id="area1" class="area"></div>
+
+    <button onclick="test2();">처리</button>
+
+    <script>
+        function test2() {
+
+            const stringla1 = document.getElementById("stringla1").innerHTML;
+            const stringla2 = document.getElementById("stringla2").innerHTML;
+            const area1 = document.getElementById("area1");
+
+            const str1 = stringla1.split(" ");
+            const str2 = stringla2.split(" ");
+
+            area1.innerHTML += str1.reverse()+str2.reverse();
+
+            
+
+
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+    <style>
+        #answer{border: 1px solid red; width: 900px; height: 20px;}
+    </style>
+</head>
+
+<body>
+    <h1>배열 실습 문제2</h1>
+
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label> <br>
+        <label id="stringla2">e v o l</label> <br> 
+    </fieldset>
+
+    <br>
+
+    <div id="answer">이 부분에 정답이 출력될 수 있도록 하세요.</div>
+    <br>
+    <button onclick="test();">처리</button>
+
+    <script>
+        function test() {
+            let str = "";
+            str = document.getElementById("stringla1").innerHTML;
+            let arr1 = str.split(" ");
+            arr1.reverse();
+            
+            str = document.getElementById("stringla2").innerHTML;
+            let arr2 = str.split(" ");
+            arr2.reverse();
+
+            const answer = document.getElementById("answer");
+
+            answer.innerHTML = ""; // 초기화
+
+            let finalArr = arr1.concat(arr2); // 안바꼈어
+            console.log(finalArr);
+
+
+            for(let i in finalArr) {
+                answer.innerHTML += finalArr[i];
+            }
+        }
+    </script>
+
+
+
+
+
+    <br><br><br>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">r b</label> <br>
+        <label id="stringla2">e v o l</label> <br>
+    </fieldset>
+    <br>
+    <div id="area1" class="area"></div>
+
+    <button onclick="test2();">처리</button>
+
+    <script>
+        function test2() {
+
+            const stringla1 = document.getElementById("stringla1").innerHTML;
+            const stringla2 = document.getElementById("stringla2").innerHTML;
+            const area1 = document.getElementById("area1");
+
+            const str1 = stringla1.split(" ");
+            const str2 = stringla2.split(" ");
+
+            area1.innerHTML += str1.reverse()+str2.reverse();
+
+        }
+    </script>
+
+
+</body>
+</html>
