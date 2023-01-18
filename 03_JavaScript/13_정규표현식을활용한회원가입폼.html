@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입폼</title>
+    <style>
+        .area{
+            border: 1px solid lightgray;
+            padding: 10px;
+            width: 600px;
+        }
+
+        label{
+            color: gray;
+            padding-left: 10px;
+            font-size: 10px;
+        }
+
+        p{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>< 정규표현식을 활용한 회원가입 폼 ></h1>
+    <form action="insert.me" method="get">
+        <!-- insert member 약어 / 메소드  겟 -->
+        <div id="area1" class="area">
+            * 아이디 : 
+            <input type="text" name="userId" id="userId" required> <br>
+            <label for="">첫글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 4~12 자로 입력하시오.</label> <br><br>
+            <!-- input 에 length를 걸지 않고, script 에 유효성 검사로 제약을 건다. -->
+        
+        
+            * 비밀번호 : 
+            <input type="password" name="userPwd1" id="userPwd1" required> <br>
+            <label for="">영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오.</label> <br><br>
+        
+            * 비밀번호 확인 : 
+            <input type="password" name="userPwd2" id="userPwd2" required> <br>
+            <label for="">위의 비밀번호와 일치하게 입력하시오.</label> <br><br>
+        
+            * 이름 : 
+            <input type="text" name="userName" id="userName" required> <br>
+            <label for="">한글로만 이루어져야 되며 2글자 이상으로 입력하시오.</label> <br><br>
+        
+            * 이메일 : 
+            <input type="email" name="eamil" id="eamil" required> <br>
+            <label for="">이메일 형식에 맞춰서 입력하시오.</label> <br><br>
+        
+            * 취미 : 
+            <input type="text" name="hobby" id="hobby" list="hobbylist" placeholder="축구, 농구, 야구, 독서 등">
+            <datalist id="hobbylist">
+                <option value="soccer">축구</option>
+                <option value="basketball">농구</option>
+                <option value="baseball">야구</option>
+                <option value="reading">독서</option>
+            </datalist>
+             <br><br>
+        
+            * 거주지 : 
+            <select name="address" id="address">
+                <option value="seoul" selected>서울</option>
+                <option value="incheon">인천</option>
+                <option value="busan">부산</option>
+            </select> <br><br>
+
+
+            <input type="submit" name="" id="" value="회원가입" onclick="return validate();">
+            <input type="reset" name="" id="" value="취소">
+        </div>
+
+    </form>
+
+
+
+            <script>
+                function validate(){
+                    // 아이디, 비밀번호, 비밀번호 일치여부, 이름
+
+                    // input 요소 객체들 가져다 놓기
+                    const idInput = document.getElementById("userId");
+
+                    const pwdInput1 = document.getElementById("userPwd1");
+                    const pwdInput2 = document.querySelector("#userPwd2"); /// 선택자가 나와야한다.
+
+                    const nameInput = document.querySelector("#userName");
+
+                    // 1) 아이디 검사
+                    // 영소문자, 숫자로만 총 4_12 글자로 이뤄져야함
+                    // 단, 첫글자는 반드시 영문자로
+                    let regExp = /^[a-z][a-z\d]{3,11}$/; // [0-9] == \d (간편하게 작성하기위해서) // 첫글자 소문자로 1자리를 줬기때문에, 나머지 3~11자리를 줘야하는 것임
+                    if(!regExp.test(idInput.value)){ // input값이기 때문에, value로 써서 가져와야한다.
+                        alert("유효한 아이디를 입력해주세요!");
+                        idInput.select(); // 정해진 규칙에 어긋나는 id 입력시, 새로 입력하라고 하면서, 아이디를 블럭지정해주는것
+                        return false;
+                    }
+
+                    // 2) 비밀번호 검사
+                    // 영문자(대소문자), 숫자, 특수문자(!@#$%^&*)로 총 8~15 글자로 이뤄져야 됨
+
+                    regExp = /^[a-z\d!@#$%^&*]{8,15}$/i;
+                    if(!regExp.test(pwdInput1.value)){
+                        alert("유효한 비밀번호를 입력해주세요.");
+                        pwdInput1.value=""; // 잘못입력했을시 pwd 창을 공백으로 만들어주고,
+                        pwdInput1.focus(); // 커서가 깜빡일 수 있게
+                        return false;
+                    }
+
+                    // 3) 비밀번호가 일치
+
+                    if(pwdInput1.value != pwdInput2.value){
+                        alert("동일한 비밀번호를 입력해주세요!");
+                        pwdInput2.value=""; // 잘못 입력햇을 시 pwd 창을 공백으로 만들어준다.
+                        pwdInput2.focus();
+                        return false;
+                    }
+
+                    // 4) 이름
+                    // 한글(결합형태 김자바) 로만 2글자 이상
+
+                    regExp = /^[가-힣]{2,}$/; // 최소 2글자 이상
+                    if(!regExp.test(nameInput.value)){
+                        alert("유효한 이름을 입력해주세요.");
+                        nameInput.select();
+                        return false;
+                    }
+
+
+
+                }
+                
+            </script>
+        
+        
+
+
+
+        
+
+    
+
+
+    
+
+</body>
+</html>
