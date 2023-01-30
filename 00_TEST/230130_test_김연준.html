@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.6.3.min.js"></script> <!-- 오프라인 방식 -->
+
+</head>
+<body>
+    <fieldset>
+        <legend>회원 가입 양식</legend>
+        <form action="test.do" method="post">
+
+            <table>
+                <tr>
+                    <td>아이디</td>
+                    <td>
+                        <input type="text" name="userId" id="userId" required>
+                    </td>
+                    <td>
+                        <button onclick="return idCheck();">중복확인</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" name="userPwd" id="userPwd" required></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td><input type="password" name="confirm" id="confirm" required></td>
+                </tr>
+                <tr>
+                    <td>지역</td>
+                    <td>
+                        <label for="seoul">서울</label>
+                        <input type="radio" name="location" id="seoul">
+                        <label for="pusan">부산</label>
+                        <input type="radio" name="location" id="pusan">
+                        <label for="daegu">대구</label>
+                        <input type="radio" name="location" id="daegu">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <input type="reset" name="" id="">
+                        <input type="submit" name="" id="" value="회원가입" onclick="return validate();">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </fieldset>
+
+
+        <script>
+            function idCheck(){
+                const idInput = document.getElementById("userId");
+
+                let regExp = /^[a-z][a-z\d!@#]{5,11}$/;
+                if(!regExp.test(idInput.value)){
+                    userId.style.backgroundColor = "red";
+                    return false;
+                }else{
+                    userId.style.backgroundColor = "green";
+                }
+
+            };
+
+            function validate(){
+                const pwdInput1 = document.getElementById("userPwd");
+                const pwdInput2 = document.getElementById("confirm");
+                var loca = document.getElementsByName("location");
+
+                // 비번
+                let regExp2 = /^[a-z\d!@#]{1,}$/i;
+                if(!regExp2.test(pwdInput1.value)){
+                    alert("유효한 비밀번호 입력요청");
+                    pwdInput1.vlaue=" ";
+                    pwdInput1.focus();
+                    return false;
+                }
+
+                // 비번 확인
+                if(pwdInput1.value != pwdInput2.value){
+                    alert("동일한 비밀번호 입력요청");
+                    pwdInput2.value=" ";
+                    pwdInput2.focus();
+                    return false;
+                }
+
+                // 지역
+
+                for(var i=0;i<loca.length;i++){
+                    if(loca[i]!=checked){
+                        alert("지역을 선택해주세요")
+                    }
+                }
+            };
+
+        </script>
+
+
+
+
+</body>
+</html>

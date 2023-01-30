@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.6.3.min.js"></script> <!-- 오프라인 방식 -->
+
+</head>
+<body>
+    <h1>시각적인 효과(Effect)</h1>
+    <p>페이지 내에 애니메이션 효과를 주기 위해 사용되는 메소드 집합</p>
+    
+    <h3>* show()와 hide(), toggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고, 점점 작아지변서 사라지게 하는 메소드</p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+    
+    <br><br>
+
+    <!-- <img src="../02_CSS3/resources/image/city1.PNG" alt="" id="city"> -->
+
+    <img src="https://postfiles.pstatic.net/MjAyMjEyMDNfMTk5/MDAxNjcwMDcwOTkwNTU3.HT0NsVqo9o_aNUdgZKKuVXkFfPk-tz8DvrOV3ip-E90g.QW2sWs04oT8SsfwPXU7hSpSDrtL1fYeK5Z2Tokf9_04g.JPEG.tkdaksnf12/IMG_6279.JPG?type=w580" alt="" id="sh">
+
+    <div id="area" style="width: 100px; height: 100px; background-color: red;"></div>
+
+    <script>
+        $(function(){
+            $("#hide").click(function(){
+                // 숨기기 클릭시 사진이 흐려진상태로(불투명) 점점 커지면서 나타난다.
+                $("#sh").hide(1500); // 밀리세컨 단위로 입력
+                $("#area").hide(3000); // 이미지가 아니라 다른 요소에도 가능
+            });
+
+            $("#show").click(function(){
+                // 보여주기 클릭시 사진이 흐려진상태로(불투명) 점점 커지면서 나타난다.
+                $("#sh").show(3000);
+                $("#area").show(1500);
+            });
+
+            $("#toggle").click(function(){
+                $("#sh").toggle(2000);
+            })
+            
+        });
+    </script>
+
+
+
+</body>
+</html>
